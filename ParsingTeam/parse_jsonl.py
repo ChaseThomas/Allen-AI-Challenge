@@ -1,5 +1,11 @@
 import json
 import re
+import nltk
+
+def stopWordRemoval( wordList ):
+    swords = nltk.corpus.stopwords.words('english')
+    return [w for w in wordList if w not in swords ]
+
 data = []
 with open('AI2-8thGr-NDMC-Feb2016-Train.jsonl') as f:
     for line in f:
