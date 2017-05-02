@@ -3,7 +3,8 @@ site_pedia = pywikibot.Site('en','wikipedia')
 site_data = pywikibot.Site('wikidata','wikidata')
 repo = site_data.data_repository()
 class KB:
-    def wikipedia_search(keyword,max_output_number):
+    @staticmethod
+    def wikipedia_search(keyword,max_output_number = 10):
         page = pywikibot.Page(site_pedia,keyword)
         item = pywikibot.ItemPage.fromPage(page)
         item_dict = item.get()
@@ -15,11 +16,13 @@ class KB:
             result.append([KB.get_property_name_by_ID(property_list[i]),clm[property_list[i]][0].getTarget()])
         return result
 
+    @staticmethod
     def get_property_name_by_ID(ID):
         property = pywikibot.PropertyPage(repo, ID)
         property_dict = property.get()
         return property_dict['labels']['en']
 
+    @staticmethod
     def quick_sort(p_list):
         if len(p_list) == 0:
             return []
