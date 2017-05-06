@@ -2,4 +2,4 @@
 from __future__ import unicode_literals
 family = 'wikipedia'
 mylang = 'en'
-usernames['wikipedia']['en'] = u'josephch405'
+usernames['wikipedia']['en'] = u'cdskaggle'
